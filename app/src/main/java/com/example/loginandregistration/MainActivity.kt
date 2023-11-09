@@ -9,13 +9,16 @@ import android.widget.TextView
 import com.example.loginandregistration.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val TAG = "LoginActivity"
+    }
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var textViewSignUp: TextView
     private lateinit var buttonLogin: Button
 
-    companion object {
-        const val TAG = "LoginActivity"
-    }
+    private var username: String = ""
+    private var password: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "setListeners: signUp clicked")
             val registerIntent = Intent(this, RegistrationActivity::class.java)
             startActivity(registerIntent)
+            registerIntent.putExtra("username", username)
         }
     }
 
