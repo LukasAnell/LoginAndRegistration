@@ -13,30 +13,37 @@ class RegistrationActivity: AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityRegistrationBinding
-    private lateinit var buttonRegister: Button
 
-    private var name: String=""
-    private var username: String = ""
-    private var password: String = ""
-    private var email: String = ""
+    var name: String = ""
+    var username: String = ""
+    var password: String = ""
+    var email: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        wireWidgets()
         setListeners()
+
+        val username = intent.getStringExtra("username") ?: ""
+
+        binding.textInputRegistrationUsername.setText(username)
     }
 
     private fun setListeners() {
-        buttonRegister.setOnClickListener {
+        binding.buttonRegistrationRegister.setOnClickListener {
             Log.d(TAG, "setListeners: register clicked")
             val loginIntent = Intent(this, MainActivity::class.java)
+
+            name = binding.textInputRegistrationName.text.toString()
+            username = binding.textInputRegistrationUsername.text.toString()
+            password = binding.editTextRegistrationPassword.text.toString()
+            email = binding.textInputRegistrationEmail.text.toString()
+
+            loginIntent.putExtra("username", username)
+            loginIntent.putExtra("password", password)
+
             startActivity(loginIntent)
         }
-    }
-
-    private fun wireWidgets() {
-        buttonRegister = findViewById(R.id.button_registration_register)
     }
 }

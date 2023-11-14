@@ -8,37 +8,40 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.loginandregistration.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity: AppCompatActivity() {
     companion object {
         const val TAG = "LoginActivity"
     }
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var textViewSignUp: TextView
-    private lateinit var buttonLogin: Button
 
-    private var username: String = ""
-    private var password: String = ""
+    private val EXTRA_USERNAME = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        wireWidgets()
         setListeners()
+
+        val username = intent.getStringExtra(RegistrationActivity.username).toString() ?: ""
+        val password = intent.getStringExtra("password").toString() ?: ""
+
+        binding.textInputMainUsername.setText(username)
+        binding.textInputMainPassword.setText(password)
     }
 
     private fun setListeners() {
-        textViewSignUp.setOnClickListener {
+        binding.textViewMainSignUp.setOnClickListener {
             Log.d(TAG, "setListeners: signUp clicked")
             val registerIntent = Intent(this, RegistrationActivity::class.java)
-            startActivity(registerIntent)
-            registerIntent.putExtra("username", username)
-        }
-    }
 
-    private fun wireWidgets() {
-        textViewSignUp = findViewById(R.id.textView_main_signUp)
-        buttonLogin = findViewById(R.id.button_main_login)
+            registerIntent.putExtra(EXTRA_USERNAME, binding.textInputMainUsername.text.toString())
+
+            startActivity(registerIntent)
+        }
+
+        binding.buttonMainLogin.setOnClickListener {
+
+        }
     }
 }
