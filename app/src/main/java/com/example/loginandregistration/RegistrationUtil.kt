@@ -5,12 +5,12 @@ package com.example.loginandregistration
 object RegistrationUtil {
     // use this in the test class for the is username taken test
     // make another similar list for some taken emails
-    var existingUsers = listOf("cosmicF", "cosmicY", "bob", "alice")
+    var existingUsers = listOf("admin", "user", "test")
+    var existingEmails = listOf("admin@gmail.com", "user@gmail.com", "test@gmail.com")
 //    you can use listOf<type>() instead of making the list & adding individually
 //    List<String> blah = new ArrayList<String>();
 //    blah.add("hi")
 //    blah.add("hello")
-//
 
     // isn't empty
     // already taken
@@ -68,7 +68,7 @@ object RegistrationUtil {
         if(!email.contains(".")) {
             return false
         }
-        if(existingUsers.contains(email)) {
+        if(existingEmails.contains(email)) {
             return false
         }
         return true
