@@ -2,34 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_main"
+    android:id="@+id/layout_registration"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_main"
+        android:id="@+id/textInputLayout_login"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/editText_main_password"
+        app:layout_constraintBottom_toTopOf="@+id/editText_login_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput_main_username">
+        app:layout_constraintTop_toBottomOf="@+id/textInput_login_username">
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInput_main_username"
+        android:id="@+id/textInput_login_username"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:hint="Username"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout_main"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_main_signUp"
+        android:id="@+id/textView_login_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autoText="false"
@@ -37,13 +37,13 @@
         android:scaleY="2"
         android:text="Sign Up"
         android:textColor="#2143FF"
-        app:layout_constraintBottom_toTopOf="@+id/button_main_login"
+        app:layout_constraintBottom_toTopOf="@+id/button_login_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_main_password" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_password" />
 
     <Button
-        android:id="@+id/button_main_login"
+        android:id="@+id/button_login_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleX="1.5"
@@ -52,17 +52,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_main_signUp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_login_signUp" />
 
     <EditText
-        android:id="@+id/editText_main_password"
+        android:id="@+id/editText_login_password"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/textView_main_signUp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_login_signUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_main" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

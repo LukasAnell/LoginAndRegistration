@@ -4,43 +4,39 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
-import com.example.loginandregistration.databinding.ActivityMainBinding
+import com.example.loginandregistration.databinding.ActivityLoginBinding
 
-class MainActivity: AppCompatActivity() {
+class LoginActivity: AppCompatActivity() {
     companion object {
         const val TAG = "LoginActivity"
     }
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setListeners()
 
         val username = intent.getStringExtra("username").toString()
         val password = intent.getStringExtra("password").toString()
 
-        binding.textInputMainUsername.setText(if(username != "null") username else "")
-        binding.editTextMainPassword.setText(if(password != "null") password else "")
+        binding.textInputLoginUsername.setText(if(username != "null") username else "")
+        binding.editTextLoginPassword.setText(if(password != "null") password else "")
     }
 
     private fun setListeners() {
-        binding.textViewMainSignUp.setOnClickListener {
+        binding.textViewLoginSignUp.setOnClickListener {
             Log.d(TAG, "setListeners: signUp clicked")
             val registerIntent = Intent(this, RegistrationActivity::class.java)
 
-            registerIntent.putExtra("username", binding.textInputMainUsername.text.toString())
+            registerIntent.putExtra("username", binding.textInputLoginUsername.text.toString())
 
             startActivity(registerIntent)
         }
 
-        binding.buttonMainLogin.setOnClickListener {
+        binding.buttonLoginLogin.setOnClickListener {
 //            if(RegistrationUtil.existingUsers.contains(binding.textInputMainUsername.text.toString())) {
 //                if(RegistrationUtil.validatePassword(binding.editTextMainPassword.text.toString(), binding.editTextMainPassword.text.toString())) {
 //                    Log.d(TAG, "setListeners: login clicked")

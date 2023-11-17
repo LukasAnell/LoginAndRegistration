@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import com.example.loginandregistration.databinding.ActivityRegistrationBinding
 
 class RegistrationActivity: AppCompatActivity() {
@@ -37,7 +35,7 @@ class RegistrationActivity: AppCompatActivity() {
     private fun setListeners() {
         binding.buttonRegistrationRegister.setOnClickListener {
             Log.d(TAG, "setListeners: register clicked")
-            val loginIntent = Intent(this, MainActivity::class.java)
+            val loginIntent = Intent(this, LoginActivity::class.java)
 
             name = binding.textInputRegistrationName.text.toString()
             username = binding.textInputRegistrationUsername.text.toString()
