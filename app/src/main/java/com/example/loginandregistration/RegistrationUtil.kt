@@ -1,5 +1,7 @@
 package com.example.loginandregistration
 
+import java.util.regex.Pattern
+
 // object keyword makes it so all the functions are
 // static functions
 object RegistrationUtil {
@@ -55,6 +57,16 @@ object RegistrationUtil {
         return true
     }
 
+    fun String.isEmailValid() =
+        Pattern.compile(
+            "[a-zA-Z0-9\\-]{1,256}" +
+                    "@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+        ).matcher(this).matches()
     // isn't empty
     // make sure the email isn't used
     // make sure it's in the proper email format user@domain.tld
@@ -62,12 +74,15 @@ object RegistrationUtil {
         if(email.isEmpty()) {
             return false
         }
-        if(!email.contains("@")) {
+        if(!email.isEmailValid()) {
             return false
         }
-        if(!email.contains(".")) {
-            return false
-        }
+//        if(!email.contains("@")) {
+//            return false
+//        }
+//        if(!email.contains(".")) {
+//            return false
+//        }
         if(existingEmails.contains(email)) {
             return false
         }

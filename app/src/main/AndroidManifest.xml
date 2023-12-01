@@ -36,7 +36,7 @@
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.REGISTRATION" />
+                <action android:name="android.intent.action.HOME" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
